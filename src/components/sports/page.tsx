@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Sports() {
   return (
-    <div>
+    <div className="mx-auto">
       <div className=" w-14 my-4 border-b border-[#738FFF]">
         <h1 className="font-bold ">Sports</h1>
       </div>
@@ -11,7 +11,7 @@ export default function Sports() {
           <div className="p-3 bg-white shadow-md lg:shadow-xl" key={card?.id}>
             <Image
               src={card?.imageUrl}
-              width={200}
+              width={300}
               height={200}
               alt={card?.alt}
             />
@@ -36,7 +36,7 @@ export default function Sports() {
           <div className="relative">
             <Image
               src="https://i.ibb.co/2SgPwTt/unnamed-1-1.png"
-              width={200}
+              width={300}
               height={200}
               alt="Advertisement title"
             />
