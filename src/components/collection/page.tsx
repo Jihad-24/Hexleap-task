@@ -1,7 +1,7 @@
 export default function Collection() {
-    return (
-      <div>
-        <h1>collection</h1>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <h1>collection up de</h1>
+    </div>
+  );
+}
