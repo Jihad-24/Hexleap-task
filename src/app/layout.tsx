@@ -1,3 +1,4 @@
+import DarkProvider from "@/components/context/DarkModeContext";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -15,10 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-[#F7F7F8] max-w-6xl mx-auto`}>
-        {children}
-      </body>
-    </html>
+    <DarkProvider>
+      <html lang="en">
+        <body className={`${inter.className}`}>{children}</body>
+      </html>
+    </DarkProvider>
   );
 }
