@@ -3,7 +3,10 @@ import { useContext } from "react";
 import { AuthContext } from "../context/DarkModeContext";
 
 export default function Sports() {
-  const { isDark } = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
+
+  const isDark = authContext?.isDark ?? false;
+
 
   return (
     <div className="mx-auto">

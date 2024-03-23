@@ -1,13 +1,21 @@
 "use client";
+import React, { createContext, useState } from "react";
 
-import { createContext, useState } from "react";
+interface AuthContextType {
+  isDark: boolean;
+  setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext<AuthContextType | null>(null);
 
-const DarkProvider = ({ children }) => {
+interface DarkProviderProps {
+  children: React.ReactNode;
+}
+
+const DarkProvider: React.FC<DarkProviderProps> = ({ children }) => {
   const [isDark, setIsDark] = useState(false);
 
-  const darkInfo = {
+  const darkInfo: AuthContextType = {
     isDark,
     setIsDark,
   };

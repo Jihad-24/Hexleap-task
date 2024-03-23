@@ -3,7 +3,10 @@ import { useContext } from "react";
 import { AuthContext } from "../context/DarkModeContext";
 
 export default function Collection() {
-  const { isDark } = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
+
+  const isDark = authContext?.isDark ?? false;
+
 
   return (
     <div className={`py-12 ${isDark ? "bg-[#18282A]" : "bg-[#F8F8FF]"}`}>
@@ -31,9 +34,7 @@ export default function Collection() {
         </div>
         {cardsData.map((card) => (
           <div
-            className={` ${
-              isDark ? "bg-[#3B3E47]" : "bg-white"
-            } shadow-md lg:shadow-xl`}
+            className={` ${isDark ? "bg-[#3B3E47]" : "bg-white"} shadow-md`}
             key={card?.id}
           >
             <Image

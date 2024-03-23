@@ -3,10 +3,13 @@ import { useContext } from "react";
 import { AuthContext } from "../context/DarkModeContext";
 
 const NavBar = () => {
-  const { isDark, setIsDark } = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
+
+  const isDark = authContext?.isDark ?? false;
+  const setIsDark = authContext?.setIsDark ?? (() => {});
 
   const handleTheme = () => {
-    setIsDark(!isDark);
+    setIsDark((prevIsDark: boolean) => !prevIsDark);
   };
 
   return (
