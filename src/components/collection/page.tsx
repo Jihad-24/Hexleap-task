@@ -1,11 +1,15 @@
 import Image from "next/image";
+import { useContext } from "react";
+import { AuthContext } from "../context/DarkModeContext";
 
 export default function Collection() {
+  const { isDark } = useContext(AuthContext);
+
   return (
-    <div className="py-12 bg-[#F8F8FF]">
+    <div className={`py-12 ${isDark ? "bg-[#18282A]" : "bg-[#F8F8FF]"}`}>
       <div className="text-center space-y-6 pb-6">
-        <h1 className="font-bold text-3xl">Collection Spotlight</h1>
-        <p className="font-semibold px-5">
+        <h1 className="font-semibold text-3xl">Collection Spotlight</h1>
+        <p className="font-medium px-2 md:px-24 text-sm">
           Discover extraordinary moments with our Spotlight Collection
           metatickets—exclusive access to premium events for an unforgettable
           experience. Grab yours today!
@@ -26,23 +30,56 @@ export default function Collection() {
           </svg>
         </div>
         {cardsData.map((card) => (
-          <div className=" bg-white shadow-md" key={card?.id}>
+          <div
+            className={` ${
+              isDark ? "bg-[#3B3E47]" : "bg-white"
+            } shadow-md lg:shadow-xl`}
+            key={card?.id}
+          >
             <Image
               src={card?.imageUrl}
               width={500}
-              height={300}
+              height={200}
               alt={card?.alt}
             />
             <div className="relative ">
-              <div className="absolute w-5 h-5 -left-2.5 -top-2.5 rounded-full bg-[#F8F8FF] "></div>
-              <hr className="my-3 border border-dashed border-gray-300" />
-              <div className="absolute w-5 h-5 -right-2.5 -top-2.5 rounded-full bg-[#F8F8FF] "></div>
+              <div
+                className={`absolute w-5 h-5 -left-2.5 -top-2.5 rounded-full ${
+                  isDark ? "bg-[#18282A]" : "bg-[#F8F8FF]"
+                }  `}
+              ></div>
+              <hr
+                className={`my-3 border border-dashed ${
+                  isDark ? "border-[#818A97]" : "border-gray-300"
+                } `}
+              />
+              <div
+                className={`absolute w-5 h-5 -right-2.5 -top-2.5 rounded-full ${
+                  isDark ? "bg-[#18282A]" : "bg-[#F8F8FF] "
+                } `}
+              ></div>
             </div>
             <div className="text-center px-3 pb-2 space-y-1">
-              <h2 className="text-[#000000] font-semibold">{card?.title}</h2>
-              <p className="uppercase text-sm">{card?.date}</p>
-              <p className=" text-[13px]">{card?.address}</p>
-              <button className="bg-[#1D1D1F] text-white w-full py-1">
+              <h2
+                className={`${
+                  isDark ? "text-FFFFFF" : "text-[#000000]"
+                }  font-medium`}
+              >
+                {card?.title}
+              </h2>
+              <p className="uppercase text-sm font-normal">{card?.date}</p>
+              <p
+                className={` text-[13px] ${
+                  isDark ? "text-[#DFDFDF]" : "text-[#525965]"
+                }`}
+              >
+                {card?.address}
+              </p>
+              <button
+                className={`${
+                  isDark ? "bg-[#000000]" : "bg-[#1D1D1F]"
+                } text-[#FFFFFF] text-sm w-full py-1 font-normal`}
+              >
                 {card?.btntext}
               </button>
             </div>

@@ -9,7 +9,7 @@ export default function Home() {
   const { isDark } = useContext(AuthContext);
   return (
     <div
-      className={` ${isDark ? "bg-black text-white" : "bg-white text-black"}`}
+      className={` ${isDark ? "bg-[#292B32] text-white" : "bg-[#F7F7F8] text-black"}`}
     >
       <div className="pb-16 pt-5 max-w-6xl mx-auto">
         <NavBar></NavBar>

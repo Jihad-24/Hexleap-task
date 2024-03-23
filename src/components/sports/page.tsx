@@ -1,6 +1,10 @@
 import Image from "next/image";
+import { useContext } from "react";
+import { AuthContext } from "../context/DarkModeContext";
 
 export default function Sports() {
+  const { isDark } = useContext(AuthContext);
+
   return (
     <div className="mx-auto">
       <div className=" w-14 my-4 border-b border-[#738FFF]">
@@ -8,31 +12,70 @@ export default function Sports() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {cardsData.map((card) => (
-          <div className="p-3 bg-white shadow-md lg:shadow-xl" key={card?.id}>
+          <div
+            className={`p-3 ${
+              isDark ? "bg-[#3B3E47]" : "bg-white"
+            } shadow-md lg:shadow-xl`}
+            key={card?.id}
+          >
             <Image
               src={card?.imageUrl}
               width={300}
               height={200}
               alt={card?.alt}
             />
-            <h2 className="text-[#000000] font-semibold py-3">{card?.title}</h2>
-            <div className="bg-[#F7F7F8] flex justify-between py-1 px-2 rounded">
+            <h2
+              className={`${
+                isDark ? "text-FFFFFF" : "text-[#000000]"
+              }  font-medium py-3`}
+            >
+              {card?.title}
+            </h2>
+            <div
+              className={`${
+                isDark ? "bg-[#292B32]" : "bg-[#F7F7F8]"
+              } flex justify-between py-1 px-2 rounded`}
+            >
               <div className="">
-                <p className="text-[12px] text-[#525965]">Total Events</p>
-                <p className="text-[#000000] font-semibold text-sm">
+                <p
+                  className={`text-[12px] ${
+                    isDark ? "text-[#DFDFDF]" : "text-[#525965]"
+                  }`}
+                >
+                  Total Events
+                </p>
+                <p
+                  className={`${
+                    isDark ? "text-[#FFFFFF]" : "text-[#000000]"
+                  } font-medium text-sm`}
+                >
                   {card?.events} Events
                 </p>
               </div>
               <div className="">
-                <p className="text-[12px] text-[#525965]">Sport</p>
-                <p className="text-[#000000] font-semibold text-sm">
+                <p
+                  className={`text-[12px] ${
+                    isDark ? "text-[#DFDFDF]" : "text-[#525965]"
+                  }`}
+                >
+                  Sport
+                </p>
+                <p
+                  className={`${
+                    isDark ? "text-[#FFFFFF]" : "text-[#000000]"
+                  } font-medium text-sm`}
+                >
                   {card?.sport}
                 </p>
               </div>
             </div>
           </div>
         ))}
-        <div className="p-3 bg-white shadow-md lg:shadow-xl">
+        <div
+          className={`p-3 ${
+            isDark ? "bg-[#3B3E47]" : "bg-white"
+          } shadow-md lg:shadow-xl`}
+        >
           <div className="relative">
             <Image
               src="https://i.ibb.co/2SgPwTt/unnamed-1-1.png"
@@ -45,11 +88,19 @@ export default function Sports() {
             </p>
           </div>
           <div className=" border-l border-b border-[#006555] p-3">
-            <h2 className="text-[#000000] font-semibold pb-2">
+            <h2
+              className={`${
+                isDark ? "text-[#FFFFFF]" : "text-[#000000]"
+              } font-semibold pb-2`}
+            >
               Advertisement title
             </h2>
             <div className="">
-              <p className="text-[12px]">
+              <p
+                className={`text-[12px] ${
+                  isDark ? "text-[#DFDFDF]" : "text-[#525965]"
+                }`}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
